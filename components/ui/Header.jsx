@@ -15,8 +15,10 @@ export default async function Header() {
 
                     <div>
                         <Link href={'/'}>IThub</Link>
+                     
                     </div>
                     <div >
+                    <Link className='mr-10' href={'/user/account'}>Профиль</Link>
                         {
                             !!session && <Logout />
                         }

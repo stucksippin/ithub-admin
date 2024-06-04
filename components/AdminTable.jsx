@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react'
 import { Space, Table, Tag } from 'antd';
+import ButtonChangeUser from './admin/ButtonChangeUser';
+import ButtonDeleteUser from './admin/ButtonDeleteUser';
 
 
 export default function AdminTable({ users }) {
@@ -31,8 +33,8 @@ export default function AdminTable({ users }) {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a>Изменить {record.name}</a>
-                    <a>Удалить</a>
+                    <ButtonChangeUser/>
+                    <ButtonDeleteUser id={users.id}/>
                 </Space>
             ),
         },
