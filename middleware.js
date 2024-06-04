@@ -16,7 +16,7 @@ export default withAuth(function middleware(req) {
 });
 
 export const config = {
-    matcher: ['/user/:path*']
+    matcher: ['/user/:path*', '/admin/:path*']
 };
 
 // '/admin/:path*',

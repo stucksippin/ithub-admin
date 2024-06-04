@@ -9,6 +9,8 @@ export default function AdminTable({ users }) {
 
     const [dataSource, setDataSource] = useState(users)
 
+    
+
 
     const columns = [
         {
@@ -29,12 +31,12 @@ export default function AdminTable({ users }) {
             key: 'email',
         },
         {
-            title: 'Action',
+            title: 'Действия',
             key: 'action',
-            render: (_, record) => (
+            render: (_, user) => (
                 <Space size="middle">
-                    <ButtonChangeUser/>
-                    <ButtonDeleteUser id={users.id}/>
+                    <ButtonChangeUser {...user}/>
+                    <ButtonDeleteUser id={user.id}/>
                 </Space>
             ),
         },
