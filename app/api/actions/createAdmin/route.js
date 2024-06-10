@@ -1,16 +1,17 @@
 import prisma from "@/libs/prisma"
-
-export async function POST(resp) {
-    const data = resp.json()
+import { hash } from "bcrypt";
+export async function PUT(resp) {
+    const data = await resp.json()
+    console.log(data)
     const query = await prisma.users.create({
         data: {
-            first_name: resp.first_name,
-            middle_name: resp.middle_name,
-            last_name: resp.last_name,
-            group: resp.group,
-            email: resp.email,
-            password: resp.password,
-            role: resp.role
+            first_name: data.first_name,
+            middle_name: data.middle_name,
+            last_name: data.last_name,
+            group: data.group,
+            email: data.email,
+            password: await hash(data.password, 10),
+            role: data.role
         }
     })
 

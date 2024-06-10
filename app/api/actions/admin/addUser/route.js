@@ -1,4 +1,5 @@
 import prisma from "@/libs/prisma"
+import { hash } from "bcrypt"
 
 
 export async function PUT(request) {
@@ -12,8 +13,9 @@ export async function PUT(request) {
             middle_name: data.middle_name,
             last_name: data.last_name,
             group: data.group,
+            role: data.role,
             email: data.email,
-            password: data,
+            password: await hash(data.password, 10),
         }
     })
 

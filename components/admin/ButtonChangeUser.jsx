@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Button, Modal, Input, Select } from 'antd'
 
-export default function ButtonChangeUser({id, first_name, middle_name, last_name, group, email}) {
+export default function ButtonChangeUser({ id, first_name, middle_name, last_name, group, email }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {
@@ -27,13 +27,12 @@ export default function ButtonChangeUser({id, first_name, middle_name, last_name
     const onSearch = (value) => {
         console.log('search:', value);
     };
-    
+
     const filterOption = (input, option) =>
         (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
 
     async function handleChange(form) {
         const formData = new FormData(form);
-
         const resp = await fetch('/api/actions/admin/changeUser', {
             method: 'PATCH',
             body: formData
@@ -46,14 +45,14 @@ export default function ButtonChangeUser({id, first_name, middle_name, last_name
 
     return (
         <>
-            <Button type="primary" onClick={showModal}>Изменить</Button>
+            <Button className='bg-[#921CB0]' type="primary" onClick={showModal}>Изменить</Button>
             <Modal title="Изменение пользователя" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                 <form id={`form-${id}`} className=''>
                     <input type="text" name='id' value={id} hidden />
                     <Input defaultValue={last_name} name="last_name" className='mt-4' placeholder="Фамилия" prefix={<UserOutlined />} />
                     <Input defaultValue={first_name} name="first_name" className='mt-4' placeholder="Имя" prefix={<UserOutlined />} />
                     <Input defaultValue={middle_name} name="middle_name" className='mt-4' placeholder="Отчество" prefix={<UserOutlined />} />
-                    <Input defaultValue={email} name="email" className='mt-4' placeholder="E-mail"/>
+                    <Input defaultValue={email} name="email" className='mt-4' placeholder="E-mail" />
                     <Select
                         className='mt-4'
                         defaultValue={group}

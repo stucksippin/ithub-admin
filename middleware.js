@@ -19,4 +19,3 @@ export const config = {
     matcher: ['/user/:path*', '/admin/:path*']
 };
 
-// '/admin/:path*',

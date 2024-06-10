@@ -9,13 +9,13 @@ export default function AdminTable({ users }) {
 
     const [dataSource, setDataSource] = useState(users)
 
-    
+
 
 
     const columns = [
         {
             title: 'ФИО',
-            key: 'full_name',
+            key: 'first_name',
             render: (_, record) => (
                 <span>{`${record.last_name} ${record.first_name} ${record.middle_name} `}</span>
             ),
@@ -35,8 +35,8 @@ export default function AdminTable({ users }) {
             key: 'action',
             render: (_, user) => (
                 <Space size="middle">
-                    <ButtonChangeUser {...user}/>
-                    <ButtonDeleteUser id={user.id}/>
+                    <ButtonChangeUser {...user} />
+                    <ButtonDeleteUser id={user.id} />
                 </Space>
             ),
         },

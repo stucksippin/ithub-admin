@@ -15,9 +15,9 @@ export default function AdminLayout({ children }) {
 
     return (
 
-        <div>
+        <div className="flex">
             <HeaderAdmin />
-            <div>{children}</div>
+            <div className="mx-auto">{children}</div>
         </div>
     );
 }
