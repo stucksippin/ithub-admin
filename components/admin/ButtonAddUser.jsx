@@ -51,7 +51,7 @@ export default function ButtonAddUser({ id, first_name, middle_name, last_name, 
 
   return (
     <>
-      <Button className='mt-10 bg-[#921CB0]' type="primary" onClick={showModal}>Добавить пользователя</Button>
+      <Button className='button__admin mt-10 bg-[#921CB0]' type="primary" onClick={showModal}>Добавить пользователя</Button>
       <Modal title="Добавление пользователя" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <form id={`form-${id}`} onSubmit={(e) => { e.preventDefault(); handleCreate(e.target); }} className='mt-10'>
           <input type="text" name='id' value={id} hidden />

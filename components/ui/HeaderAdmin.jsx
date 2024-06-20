@@ -13,14 +13,21 @@ export default async function HeaderAdmin() {
         <header className='bg-[#E6E8EA] w-[300px] font-semibold rounded-r-[50px]'>
             <nav className='w-[250px] mx-auto' >
                 <ul className='flex flex-col'>
-                    <li className='text-xl text-center mt-5'>   <Link href={'/'}>IThub | Админ</Link>  </li>
-                    <div className='mt-10'>
-                        <label className='text-[#838484]'>Действия</label>
-                        <li className='ml-10'>
+                    <li className='text-xl text-center mt-5'><Link href={'/'}>IThub | Админ</Link>  </li>
+                    <div className='mt-10 admin__menu'>
+
+                        <li className='menu__action flex '>
+                            <img className='w-[100%]' src="action.png" alt="" />
+                            <label className='flex'>Действия</label>
+                        </li>
+
+                        <li className='ml-10 mt-3 menu__exit flex'>
+                            <img className='mr-5 w-[100%]' src="exit.png" alt="" />
                             {
                                 !!session && <Logout />
                             }
                         </li>
+
                     </div>
 
                 </ul>

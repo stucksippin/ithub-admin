@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { Space, Table, Tag } from 'antd';
 import ButtonChangeUser from './admin/ButtonChangeUser';
 import ButtonDeleteUser from './admin/ButtonDeleteUser';
+import { ConfigProvider } from 'antd';
+import ruRU from 'antd/locale/ru_RU'
 
 
 export default function AdminTable({ users }) {
@@ -44,8 +46,10 @@ export default function AdminTable({ users }) {
 
 
     return (
-        <div>
-            <Table className='mt-10' dataSource={dataSource} columns={columns} />
+        <div className='admin__table'>
+            <ConfigProvider locale={ruRU}>
+                <Table className='mt-10 ' dataSource={dataSource} columns={columns} />
+            </ConfigProvider>
         </div>
     )
 }

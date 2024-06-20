@@ -1,5 +1,5 @@
 import prisma from "@/libs/prisma"
-import { hash } from "bcrypt";
+import { hash } from "bcryptjs";
 export async function PUT(resp) {
     const data = await resp.json()
     console.log(data)
