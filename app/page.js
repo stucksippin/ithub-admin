@@ -1,32 +1,22 @@
-
-import { NextAuthOptions } from '@/config';
-import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation';
-import React from 'react'
-
+import { NextAuthOptions } from "@/config";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function MainPage() {
   const session = await getServerSession(NextAuthOptions);
 
   if (!session || !session.user) {
-    redirect('/login')
+    redirect('/login');
   }
 
   const { role } = session.user;
 
-
-
   if (role === 'admin') {
     redirect('/admin');
-  } else {
+  } else if (role === 'user') {
     redirect('/user');
   }
 
-
-  return (
-    <div>здарова ты как сюда попал<br />
-      &#128075;
-    </div>
-  )
-
+  // Если роль не определена
+  return redirect('/login');
 }
